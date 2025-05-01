@@ -9,16 +9,10 @@ def UNDEF( Name: str ) -> None:
     __MACROS__.pop( Name, None )
 
 def IFDEF( Name: str ) -> bool:
-    try:
-        __MACROS__[ Name ]
-        return True
-    except: return False
+    return Name in __MACROS__
 
 def IFNDEF( Name: str ) -> bool:
-    try:
-        __MACROS__[ Name ]
-        return False
-    except: return True
+    return Name not in __MACROS__
 
 def GET( Name: str ) -> bool:
     return __MACROS__[ Name ]
